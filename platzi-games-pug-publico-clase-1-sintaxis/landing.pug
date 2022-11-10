@@ -1,0 +1,36 @@
+-var titulo="Titulo Principal"
+-var titulos= ["Titulo Principal" , "Subtitulo 1" , "Subtitulo 2" , "Subtitulo 3"]
+-var usuario= "David"
+mixin caja(imagen,titulo,contenido) 
+    .caja 
+        .caja__imagen: img(src="images/"+imagen)
+        .caja__contenido    
+            h3  #{titulo}
+            p   #{contenido}  
+          
+doctype html
+html
+    include componenteshead.pug
+    body
+        header
+            h1 PlatziGames
+            if usuario
+                a Hola  #{usuario}
+            else 
+                a.boton Registro
+        section.intro 
+            .intro__imagen: img(src="images/imagen.png")
+            .intro__contenido 
+                h2  #{titulos[0]}
+                p   Lorem ipsum dolor sit amet,consectetur adipisicing elit.Eum sit sint tempora,blanditiis molestias, adipisci, illo tempore facilis suscipit assumenda nesciunt! 
+                    span Nihil necessitatibus eaque accusantium tempore velit enim nam sed.     
+                a.boton Leer más  
+        main.contenido 
+            +caja('imagen.png', titulos[1], 'Lorem')
+            +caja('imagen.png', titulos[2], 'Lorem')
+            +caja('imagen.png', titulos[3], 'Lorem')
+            
+        ul
+            each titulito in titulos 
+                li  #{titulito}
+        
